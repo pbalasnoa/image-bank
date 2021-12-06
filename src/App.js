@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import Home from "./pages/Home";
+import Detail from "./pages/Details";
+import SearchImage from "./pages/SearchResult";
+
+import { Route } from "wouter";
+import Context from "./context/StaticContext";
+import { ImageContextProvider } from "./context/ImageContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{ name: "pao", suscribe: true }}>
+      <>
+        <ImageContextProvider>
+          <Route to="/" component={Home} />
+          <Route path="/search/:query" component={SearchImage} />
+          <Route path="/image/:id" component={Detail} />
+        </ImageContextProvider>
+      </>
+    </Context.Provider>
   );
 }
 

@@ -1,0 +1,115 @@
+.card-detail {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-detail-header-nav {
+  position: absolute;
+  top: 1.5rem;
+  /* left: 1rem; */
+  padding-inline: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--indian-red--accent);
+  font-size: 1.75rem;
+  z-index: 10;
+}
+
+.card_img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.footer {
+  position: absolute;
+  bottom: 1.5rem;
+}
+
+.card-detail-info {
+  width: 90%;
+  height: fit-content;
+  padding-block: 2rem;
+  padding-inline: 1rem;
+  color: var(--rich-Black--primary);
+  background-color: #ece7ff10;
+  backdrop-filter: blur(20px);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: var(--border-radius);
+}
+
+.card-more-detail-icon {
+  position: absolute;
+  top: 0.25rem;
+  right: 1rem;
+  color: var(--indian-red--accent);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.card-less-detail-icon {
+  /* position: absolute;
+  top: 0.625rem; */
+  right: 1rem;
+  color: var(--indian-red--accent);
+  font-size: 2rem;
+
+  cursor: pointer;
+}
+
+.shadow {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card-detail-info-grid-column {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-detail-info-grid-row {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 0.5rem;
+  align-items: center;
+  justify-content: start;
+}
+
+.bg-blur {
+  padding-block: 0.5rem;
+  background-color: #00121920;
+  backdrop-filter: blur(20px);
+}
+
+.card-detail-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+.card-detail-subtext {
+  display: flex;
+  align-items: center;
+  /* padding-top: 1rem; */
+  font-size: 1rem;
+  text-align: left;
+}
+
+.card-detail-icon {
+  font-size: 1.25rem;
+  padding-inline: 1rem;
+}
+
+.card-detail-social-icon {
+  font-size: 1.75rem;
+  color: var(--charcoal);
+  cursor: pointer;
+}

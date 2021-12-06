@@ -1,0 +1,97 @@
+.card {
+  margin-bottom: 2rem;
+}
+
+.card-img {
+  width: 100%;
+  padding-inline: 1rem;
+  cursor: pointer;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: flex-start;
+  padding-inline: 1rem;
+}
+
+.card-stats {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-block: 1rem;
+  font-size: 1.125rem;
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+.card-stats > i {
+  padding-right: 0.5rem;
+  color: var(--indian-red--accent);
+}
+
+.card-tags-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.card-tags {
+  padding-inline: 1.2rem;
+  padding-block: 0.5rem;
+  border: 2px solid var(--lavender--secondary);
+  border-radius: var(--border-radius);
+  color: var(--charcoal);
+}
+
+.card-tags:hover {
+  background-color: var(--indian-red--accent);
+  color: var(--lavender--secondary);
+  border: none;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--charcoal);
+}
+
+.card-text {
+  padding-top: 0.625rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--rich-Black--primary);
+  text-align: left;
+}
+
+.btn-text {
+  padding-top: 0.625rem;
+  color: var(--indian-red--accent);
+  font-family: var(--Inter);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+/* .card-description-box{
+
+} */
+
+/* 928px */
+/* @media (min-width: 58em) {
+  .card {
+    display: grid;
+    width: 300px;
+  }
+} */

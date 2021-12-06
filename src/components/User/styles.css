@@ -1,0 +1,26 @@
+.user-container {
+  display: flex;
+  align-items: center;
+  padding-block: 1rem;
+  padding-left: 2rem;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  align-items: flex-start;
+  padding-inline: 1rem;
+}
+
+.user-name {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--rich-Black--primary);
+}
+
+.user-username {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--charcoal);
+}
