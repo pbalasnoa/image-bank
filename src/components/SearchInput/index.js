@@ -9,7 +9,7 @@ export default function SearchInput({ handleChange, handleSubmit, query }) {
           value={query}
           onChange={handleChange}
           className="search-text"
-          placeholder="Search"
+          placeholder="Search photos"
         />
         <div className="search-btn-box" onClick={handleSubmit}>
           <i className="bi bi-search search-btn"></i>

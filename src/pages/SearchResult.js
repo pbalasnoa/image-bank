@@ -1,7 +1,9 @@
 import { useEffect, useRef, useCallback } from "react";
 import ListOfImage from "../components/ListOfImage/index.js";
+
 import useImages from "../hooks/useImages.js";
 import useNearScreen from "../hooks/useNearScreen.js";
+
 import debounce from "just-debounce-it";
 
 export default function SearchResult({ params }) {
