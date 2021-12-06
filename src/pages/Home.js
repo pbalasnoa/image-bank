@@ -1,23 +1,24 @@
-import useImages from "../hooks/useImages";
-
-import ListOfImage from "../components/ListOfImage";
+import { useState } from "react";
+import { useEffect } from "react/cjs/react.development";
+import getTopics from "../services/getTopics";
 
 export default function Home() {
-  const { loading, images } = useImages(); // eslint-disable-line
+  const [topics, setTopics] = useState([]);
+
+  useEffect(() => {
+    getTopics().then((topic) => setTopics(topic));
+  }, []);
 
   return (
     <>
-      {/* <Header
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        query={query}
-      /> */}
-      <h3 className="mb">Última búsqueda</h3>
-      {/* <section className="container">
-        <ListOfImage images={images} />
-      </section> */}
-
-      <ListOfImage images={images} />
+      <h3 className="mb">List topics</h3>
+      <div className="card-tags-box">
+        {topics?.map((tag) => (
+          <p key={tag.title} className="card-tags">
+            {tag.title}
+          </p>
+        ))}
+      </div>
     </>
   );
 }

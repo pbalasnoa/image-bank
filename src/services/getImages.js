@@ -2,7 +2,7 @@ import { API_KEY, API_URL } from "./settings";
 
 const responseToImages = (apiResponse) => {
   const { results = [] } = apiResponse;
-  // console.log(apiResponse);
+
   if (Array.isArray(results)) {
     const images = results.map((img) => {
       const { alt_description, description, id, likes, tags, urls, user } = img;
@@ -28,9 +28,8 @@ const responseToImages = (apiResponse) => {
 };
 
 export default function getImages({ query = "random", page = 1 } = {}) {
-  // console.log(query);
   const apiURL = `${API_URL}/search/photos?query=${query}&page=${page}&orientation=portrait&client_id=${API_KEY}`;
-  // console.log(apiURL);
+
   return fetch(apiURL)
     .then((res) => res.json())
     .then(responseToImages);

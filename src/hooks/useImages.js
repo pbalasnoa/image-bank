@@ -8,14 +8,12 @@ export default function useImages({ query } = { query: null }) {
   const [loading, setLoading] = useState(false);
   const [loadingNextPage, setLoadingNextPage] = useState(false);
   const [page, setPage] = useState(INITIAL_PAGE);
-  // const [images, setImages] = useState([]);
   const { images, setImages } = useContext(ImageContext);
 
   const queryToUse =
     query || localStorage.getItem("lastQuery") !== "null"
       ? localStorage.getItem("lastQuery")
       : false || "random";
-  // console.log("useImage", queryToUse);
 
   useEffect(() => {
     setLoading(true);
