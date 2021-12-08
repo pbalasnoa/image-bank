@@ -38,20 +38,6 @@
   padding-bottom: 1rem;
 }
 
-.card-tags {
-  padding-inline: 1.2rem;
-  padding-block: 0.5rem;
-  border: 2px solid var(--lavender--secondary);
-  border-radius: var(--border-radius);
-  color: var(--charcoal);
-}
-
-.card-tags:hover {
-  background-color: var(--indian-red--accent);
-  color: var(--lavender--secondary);
-  border: none;
-}
-
 .card-subtitle {
   font-size: 0.875rem;
   font-weight: 500;

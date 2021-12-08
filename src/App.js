@@ -39,6 +39,7 @@ function App() {
           />
           <Route to="/" component={Home} />
           <Route path="/search/:query" component={SearchImage} />
+          <Route path="/search/topic/:id" component={SearchImage} />
         </div>
         <Route path="/image/:id" component={Detail} />
       </ImageContextProvider>

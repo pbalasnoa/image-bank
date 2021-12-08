@@ -1,10 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import ImageContext from "../context/ImageContext";
 import getImages from "../services/getImages";
+import getTopicImages from "../services/getTopicImages";
 
 const INITIAL_PAGE = 1;
 
-export default function useImages({ query } = { query: null }) {
+export default function useImages({ query, id } = { query: null, id: null }) {
   const [loading, setLoading] = useState(false);
   const [loadingNextPage, setLoadingNextPage] = useState(false);
   const [page, setPage] = useState(INITIAL_PAGE);
@@ -18,22 +19,37 @@ export default function useImages({ query } = { query: null }) {
   useEffect(() => {
     setLoading(true);
 
-    getImages({ query: queryToUse }).then((images) => {
-      setImages(images);
-      setLoading(false);
-      localStorage.setItem("lastQuery", query);
-    });
-  }, [query, queryToUse, setImages]);
+    if (id) {
+      getTopicImages({ id }).then((images) => {
+        setImages(images);
+        setLoading(false);
+      });
+    } else {
+      getImages({ query: queryToUse }).then((images) => {
+        setImages(images);
+        setLoading(false);
+        localStorage.setItem("lastQuery", query);
+      });
+    }
+  }, [query, id, queryToUse, setImages]);
 
   useEffect(() => {
     if (page === INITIAL_PAGE) return;
 
-    setLoadingNextPage(true);
-    getImages({ query: queryToUse, page }).then((nextImages) => {
-      setImages((prevImage) => prevImage.concat(nextImages));
-      setLoadingNextPage(false);
-    });
-  }, [queryToUse, page, setImages]);
+    if (id) {
+      setLoadingNextPage(true);
+      getTopicImages({ id, page }).then((nextImages) => {
+        setImages((prevImage) => prevImage.concat(nextImages));
+        setLoadingNextPage(false);
+      });
+    } else {
+      setLoadingNextPage(true);
+      getImages({ query: queryToUse, page }).then((nextImages) => {
+        setImages((prevImage) => prevImage.concat(nextImages));
+        setLoadingNextPage(false);
+      });
+    }
+  }, [queryToUse, id, page, setImages]);
 
   return { loading, loadingNextPage, images, setPage };
 }

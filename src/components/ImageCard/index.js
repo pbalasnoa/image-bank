@@ -70,13 +70,15 @@ export default function ImageCard(props) {
           <p className="">{new Intl.NumberFormat().format(likes)}</p>
         </div>
 
-        <div className="card-tags-box">
-          {tags?.map((tag) => (
-            <p key={tag.title} className="card-tags">
-              {tag.title}
-            </p>
-          ))}
-        </div>
+        {tags && (
+          <div className="card-tags-box">
+            {tags?.map((tag) => (
+              <p key={tag.title} className="card-tags">
+                {tag.title}
+              </p>
+            ))}
+          </div>
+        )}
 
         {description && (
           <>

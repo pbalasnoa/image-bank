@@ -1,26 +1,28 @@
 import { API_KEY, API_URL } from "./settings";
 
-const responseToTopics = (apiResponse) => {
+const responseToCollection = (apiResponse) => {
   const results = apiResponse;
 
   if (Array.isArray(results)) {
     const result = results.map((result) => {
-      const { slug, title, total_photos } = result;
+      const { id, title, total_photos, preview_photos } = result;
+
       return {
-        id: slug,
+        id,
         title,
         total_photos,
+        preview_photos,
       };
     });
-
     return result;
   }
   return [];
 };
 
-export default function getTopics() {
-  const apiURL = `${API_URL}/topics?order_by="featured"&client_id=${API_KEY}`;
+export default function getCollection() {
+  const apiURL = `${API_URL}/collections?&client_id=${API_KEY}`;
+
   return fetch(apiURL)
     .then((res) => res.json())
-    .then(responseToTopics);
+    .then(responseToCollection);
 }
