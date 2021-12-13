@@ -1,12 +1,22 @@
 import { useState } from "react";
+import { useEffect } from "react/cjs/react.development";
 import { useLocation } from "wouter";
 import DetailCard from "../components/DetailCard";
-import useGlobalImages from "../hooks/useGlobalImages";
+import getImage from "../services/getImage";
+import useResponsive from "../hooks/useResponsive";
 
 export default function Detail({ params }) {
   const [query, setQuery] = useState("");
   const location = useLocation();
-  const images = useGlobalImages();
+  // const images = useGlobalImages();
+  const [image, setImage] = useState({});
+  const { width } = useResponsive();
+
+  console.log("desde details", width);
+
+  useEffect(() => {
+    getImage(params).then((img) => setImage(img));
+  }, [params]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,11 +27,12 @@ export default function Detail({ params }) {
     setQuery(event.target.value);
   };
 
-  const image = images.find((image) => image.id === params.id);
+  // const image = images.find((image) => image.id === params.id);
 
   return (
     <DetailCard
       image={image}
+      width={width}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       query={query}

@@ -20,9 +20,7 @@ export default function Home() {
       <div className="home-tags-box">
         <Tag tags={topics} />
       </div>
-
-      <h3 className="mbl-2">Collections</h3>
-      <div className="home-collections-box">
+      <div className="home-collections-box mbl-2">
         <MiniCard collection={collection} />
       </div>
     </main>

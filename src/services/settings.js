@@ -1,2 +1,2 @@
-export const API_KEY = "3hS14PBnOKgqYtS4b1VPB_EwnZ2hlzOAT1Bs1-Jul44";
-export const API_URL = "https://api.unsplash.com";
+export const API_KEY = process.env.REACT_APP_API_KEY;
+export const API_URL = process.env.REACT_APP_API_URL;

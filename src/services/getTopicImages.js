@@ -1,9 +1,6 @@
 import { API_KEY, API_URL } from "./settings";
 
-const responseToImages = (apiResponse) => {
-  console.log("topic", apiResponse);
-  const results = apiResponse;
-
+const responseToImages = (results = []) => {
   if (Array.isArray(results)) {
     const images = results.map((img) => {
       const { alt_description, description, id, likes, urls, user } = img;

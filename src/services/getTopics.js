@@ -1,8 +1,6 @@
 import { API_KEY, API_URL } from "./settings";
 
-const responseToTopics = (apiResponse) => {
-  const results = apiResponse;
-
+const responseToTopics = (results = []) => {
   if (Array.isArray(results)) {
     const result = results.map((result) => {
       const { slug, title, total_photos } = result;

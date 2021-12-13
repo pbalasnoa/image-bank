@@ -50,11 +50,14 @@
   position: absolute;
   bottom: 16px;
   left: 16px;
-  padding: 0.05rem;
+  padding-block: 0.05rem;
+  padding-inline: 0.5rem;
   color: var(--indian-red--accent);
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.088rem;
+  text-align: left;
   background-color: #ece7ff10;
   backdrop-filter: blur(40px);
   border-radius: var(--border-radius);
@@ -62,6 +65,7 @@
 
 .miniCard-info-totalPhotos {
   font-size: 1.5rem;
+  font-weight: 500;
   color: var(--lavender--secondary);
 }
 

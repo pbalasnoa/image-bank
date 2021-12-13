@@ -14,17 +14,18 @@
   width: 100%;
   color: var(--indian-red--accent);
   font-size: 1.75rem;
-  z-index: 10;
+  z-index: 30;
 }
 
 .card_img {
   position: fixed;
   top: 0;
   left: 0;
-  max-width: 100%;
+  min-width: 100vw;
   min-height: 100vh;
   object-fit: cover;
   overflow: hidden;
+  z-index: 20;
 }
 
 .footer {
@@ -38,10 +39,12 @@
   padding-block: 2rem;
   padding-inline: 1rem;
   color: var(--rich-Black--primary);
+  font-weight: 700;
   background-color: #ece7ff10;
   backdrop-filter: blur(20px);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: var(--border-radius);
+  z-index: 30;
 }
 
 .card-more-detail-icon {
@@ -59,8 +62,8 @@
   right: 1rem;
   color: var(--indian-red--accent);
   font-size: 2rem;
-
   cursor: pointer;
+  z-index: 30;
 }
 
 .shadow {
@@ -90,7 +93,6 @@
 
 .card-detail-text {
   font-size: 1.25rem;
-  font-weight: 500;
   text-align: left;
   padding-bottom: 1rem;
 }
@@ -112,4 +114,81 @@
   font-size: 1.75rem;
   color: var(--charcoal);
   cursor: pointer;
+}
+
+@media (min-width: 31.25em) {
+  .card-detail-desk {
+    display: flex;
+  }
+
+  .card-detail--img-box-desk {
+    width: 500px;
+    min-height: 100vh;
+    margin-right: 2rem;
+  }
+
+  .card-detail--img-box-desk img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+  }
+
+  .card-detail--info-desk {
+    margin-top: 100px;
+  }
+
+  .card-detail--info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+    color: var(--charcoal);
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  .card-detail--info-title {
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: var(--rich-Black--primary);
+  }
+
+  .card-detail--stats {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .card-detail--stats-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    color: var(--charcoal);
+    border: 1px solid var(--lavender--secondary);
+    border-radius: var(--border-radius);
+  }
+
+  .card-detail--stats-subtitle {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .card-detail--stats-title {
+    padding-bottom: 0.05rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--indian-red--accent);
+  }
 }

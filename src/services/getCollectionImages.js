@@ -1,13 +1,12 @@
 import { API_KEY, API_URL } from "./settings";
 
-const responseToImages = ({ results } = []) => {
+const responseToCollectionImages = (results = []) => {
   if (Array.isArray(results)) {
     const images = results.map((img) => {
-      const { alt_description, description, id, likes, tags, urls, user } = img;
-      // const { name: name_exif } = exif;
-      // const { name: name_location } = location;
+      const { alt_description, description, id, likes, urls, user } = img;
       const { small } = urls;
       const { name, profile_image, username } = user;
+
       return {
         alt_description,
         description,
@@ -16,7 +15,6 @@ const responseToImages = ({ results } = []) => {
         name,
         profile_image,
         small,
-        tags,
         username,
       };
     });
@@ -25,10 +23,10 @@ const responseToImages = ({ results } = []) => {
   return [];
 };
 
-export default function getImages({ query = "random", page = 1 } = {}) {
-  const apiURL = `${API_URL}/search/photos?query=${query}&page=${page}&orientation=portrait&client_id=${API_KEY}`;
+export default function getCollectionImages({ idCollection, page = 1 } = {}) {
+  const apiURL = `${API_URL}/collections/${idCollection}/photos?&page=${page}&orientation=portrait&client_id=${API_KEY}`;
 
   return fetch(apiURL)
     .then((res) => res.json())
-    .then(responseToImages);
+    .then(responseToCollectionImages);
 }

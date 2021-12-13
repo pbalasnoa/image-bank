@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Detail from "./pages/Details";
 import SearchImage from "./pages/SearchResult";
 
-import { Route } from "wouter";
+import { Route, useRoute } from "wouter";
 
 import { ImageContextProvider } from "./context/ImageContext";
 import { useState } from "react";
@@ -18,6 +18,7 @@ function App() {
 
   // eslint-disable-next-line
   const [path, pushLocation] = useLocation();
+  const [match] = useRoute("/image/:id");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,16 +32,21 @@ function App() {
   return (
     <>
       <ImageContextProvider>
-        <div>
+        {!match && (
           <Header
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             query={query}
           />
-          <Route to="/" component={Home} />
-          <Route path="/search/:query" component={SearchImage} />
-          <Route path="/search/topic/:id" component={SearchImage} />
-        </div>
+        )}
+        <Route to="/" component={Home} />
+        <Route path="/search/:query" component={SearchImage}></Route>
+        <Route path="/search/topic/:id" component={SearchImage} />
+        <Route
+          path="/search/collection/:idCollection"
+          component={SearchImage}
+        />
+
         <Route path="/image/:id" component={Detail} />
       </ImageContextProvider>
     </>

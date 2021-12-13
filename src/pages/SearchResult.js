@@ -7,19 +7,13 @@ import useNearScreen from "../hooks/useNearScreen.js";
 import debounce from "just-debounce-it";
 
 export default function SearchResult({ params }) {
-  // console.log("result", params);
-  const { query, id } = params;
-  const { loading, images, setPage } = useImages({ query, id });
+  const { query, id, idCollection } = params;
+  const { loading, images, setPage } = useImages({ query, id, idCollection });
   const externalRef = useRef();
   const { isNearScreen } = useNearScreen({
     externalRef: loading ? null : externalRef,
     once: false,
   });
-
-  // const [match, Useparams] = useRoute("/search/:query");
-
-  // console.log("useparams", Useparams);
-  // console.log("match", match);
 
   //eslint-disable-next-line
   const debounceHandleNextPage = useCallback(

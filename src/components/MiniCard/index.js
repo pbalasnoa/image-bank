@@ -1,9 +1,17 @@
 import "./styles.css";
 
+import { useLocation } from "wouter";
+
 export default function MiniCard({ collection }) {
-  console.log(collection);
+  // eslint-disable-next-line
+  const [path, pushLocation] = useLocation();
+
   return collection.map((col) => (
-    <div key={col.id} className="miniCard-img-box">
+    <div
+      key={col.id}
+      onClick={() => col.id && pushLocation(`/search/collection/${col.id}`)}
+      className="miniCard-img-box"
+    >
       <div className="miniCard-slider">
         {col.preview_photos.map((img) => (
           <img
