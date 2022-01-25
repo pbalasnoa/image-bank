@@ -4,17 +4,17 @@ import "./styles.css";
 import { useLocation } from "wouter";
 
 import DynamicStyleSearchInput from "../DynamicStyleSearchInput/index.js";
+import useImageColor from "use-image-color";
 
 export default function DetailCard(props) {
   const { image, width, handleChange, handleSubmit, query } = props;
-  const [showDetail, setShowDetail] = useState(true); //eslint-disable-line
-  const [render, setRender] = useState(true); //eslint-disable-line
+  const [showDetail, setShowDetail] = useState(true);
   const [location, setLocation] = useLocation(); // eslint-disable-line
   const {
     alt_description,
     collections_user,
     downloads,
-    id,
+    // id,
     instagram_username,
     likes,
     likes_user,
@@ -24,10 +24,10 @@ export default function DetailCard(props) {
     photos_user,
     small,
     twitter_username,
-    username,
+    // username,
     views,
   } = image;
-  // console.log(props);
+  const { colors } = useImageColor(small, { cors: true, colors: 5 });
 
   const mobileRender = () => {
     return (
@@ -172,7 +172,7 @@ export default function DetailCard(props) {
                   {new Intl.NumberFormat().format(downloads)}
                 </p>
                 <span className="card-detail--stats-subtitle">
-                  <i class="bi bi-cloud-arrow-down-fill"></i> downloads
+                  <i className="bi bi-cloud-arrow-down-fill"></i> downloads
                 </span>
               </div>
             </div>
@@ -226,48 +226,15 @@ export default function DetailCard(props) {
     );
   };
 
-  return width < 500 ? mobileRender() : deskRender();
+  return (
+    <div>
+      {width < 500 ? mobileRender() : deskRender()}
+      {colors?.length > 0 &&
+        colors.map((color) => (
+          <div
+            style={{ backgroundColor: color, height: "50px", width: "50px" }}
+          ></div>
+        ))}
+    </div>
+  );
 }
-
-/* <main className="main">
-        <section className="card-detail--stats-container">
-          <div className="card-detail--info-desk">
-            <h2 className="card-detail--info-title">image</h2>
-            <div className="card-detail--stats-box">
-              <p className="card-detail--stats-subtitle">
-                <i className="bi bi-eye-fill"></i>
-                views
-              </p>
-              <p className="card-detail--stats-title">{views}</p>
-            </div>
-            <div className="card-detail--stats-box">
-              <i className="bi bi-heart-fill"></i>
-              <span className="card-detail--stats-subtitle">likes</span>
-              <p className="card-detail--stats-title">{likes}</p>
-            </div>
-            <p>dow</p>
-            <p>{name_exif}</p>
-            <p>{name_location}</p>
-          </div>
-        </section>
-        <section className="card-detail--stats-container">
-          <div className="card-detail--info-desk">
-            <h2 className="card-detail--info-title">user</h2>
-            <div className="card-detail--stats-box">
-              <p className="card-detail--stats-subtitle">
-                <i className="bi bi-eye-fill"></i>
-                views
-              </p>
-              <p className="card-detail--stats-title">{views}</p>
-            </div>
-            <div className="card-detail--stats-box">
-              <i className="bi bi-heart-fill"></i>
-              <span className="card-detail--stats-subtitle">likes</span>
-              <p className="card-detail--stats-title">{likes}</p>
-            </div>
-            <p>dow</p>
-            <p>{name_exif}</p>
-            <p>{name_location}</p>
-          </div>
-        </section>
-      </main> */

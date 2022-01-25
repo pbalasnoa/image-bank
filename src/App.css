@@ -89,17 +89,6 @@ a {
   padding-inline: 2rem;
 }
 
-/* .home-collections-box {
-  display: flex;
-  
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 0 auto;
-  row-gap: 1rem;
-  column-gap: 2rem;
-} */
-
 .home-collections-box {
   display: grid;
   grid-template-columns: 1fr;
