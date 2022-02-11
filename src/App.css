@@ -97,6 +97,15 @@ a {
   row-gap: 1rem;
 }
 
+@media (min-width: 41em) {
+  .home-collections-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+    column-gap: 2rem;
+  }
+}
+
 @media (min-width: 58em) {
   .my-masonry-grid {
     display: flex;
@@ -110,8 +119,6 @@ a {
   .home-collections-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
     row-gap: 1rem;
     column-gap: 2rem;
   }

@@ -14,10 +14,10 @@ export default function useImages(
   const [page, setPage] = useState(INITIAL_PAGE);
   const { images, setImages } = useContext(ImageContext);
 
-  const queryToUse =
-    query || localStorage.getItem("lastQuery") !== "null"
-      ? localStorage.getItem("lastQuery")
-      : false || "random";
+  // const queryToUse =
+  // query || localStorage.getItem("lastQuery") !== "null"
+  //   ? localStorage.getItem("lastQuery")
+  //   : false || "random";
 
   useEffect(() => {
     setLoading(true);
@@ -28,7 +28,7 @@ export default function useImages(
         setLoading(false);
       });
     } else if (query) {
-      getImages({ query: queryToUse }).then((images) => {
+      getImages({ query }).then((images) => {
         setImages(images);
         setLoading(false);
         localStorage.setItem("lastQuery", query);
@@ -39,7 +39,7 @@ export default function useImages(
         setLoading(false);
       });
     }
-  }, [query, id, idCollection, queryToUse, setImages]);
+  }, [query, id, idCollection, setImages]);
 
   useEffect(() => {
     if (page === INITIAL_PAGE) return;
@@ -52,7 +52,7 @@ export default function useImages(
       });
     } else if (query) {
       setLoadingNextPage(true);
-      getImages({ query: queryToUse, page }).then((nextImages) => {
+      getImages({ query, page }).then((nextImages) => {
         setImages((prevImage) => prevImage.concat(nextImages));
         setLoadingNextPage(false);
       });
@@ -63,7 +63,7 @@ export default function useImages(
         setLoadingNextPage(false);
       });
     }
-  }, [query, queryToUse, id, idCollection, page, setImages]);
+  }, [query, id, idCollection, page, setImages]);
 
   return { loading, loadingNextPage, images, setPage };
 }

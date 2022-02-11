@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
-import { useLocation } from "wouter";
 import getImage from "../../services/getImage";
 import useResponsive from "../../hooks/useResponsive";
 import useImageColor from "use-image-color";
@@ -14,7 +13,6 @@ import ColorPalette from "../../components/ColorPalette";
 
 export default function Detail({ params }) {
   const [query, setQuery] = useState("");
-  const [location, setLocation] = useLocation(); // eslint-disable-line
   const [image, setImage] = useState({});
   const { width } = useResponsive();
   const { colors } = useImageColor(image.small, {
@@ -27,42 +25,22 @@ export default function Detail({ params }) {
     getImage(params).then((img) => setImage(img));
   }, [params]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    location[1](`/search/${query}`);
-  };
-
-  const handleChange = (event) => {
-    setQuery(event.target.value);
-  };
-
   return (
     <>
-      {width < 500 ? (
-        <div className="card-detail">
-          <ImgInfoNavCard setLocation={setLocation}>
-            <DynamicStyleSearchInput
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              query={query}
-            />
-          </ImgInfoNavCard>
-          {colors && <ImgInfoMobileRender image={image} color={colors[0]} />}
-        </div>
-      ) : (
-        <div className="card-detail-desk">
-          <ImgInfoNavCard setLocation={setLocation}>
-            <DynamicStyleSearchInput
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              query={query}
-            />
-          </ImgInfoNavCard>
+      <div className={width > 500 ? "card-detail-desk" : "card-detail"}>
+        <ImgInfoNavCard>
+          <DynamicStyleSearchInput query={query} setQuery={setQuery} />
+        </ImgInfoNavCard>
+        {width < 500 ? (
+          <>
+            {colors && <ImgInfoMobileRender image={image} color={colors[0]} />}
+          </>
+        ) : (
           <ImgInfoDeskRender image={image}>
             {colors && colors.length > 0 && <ColorPalette colors={colors} />}
           </ImgInfoDeskRender>
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 }

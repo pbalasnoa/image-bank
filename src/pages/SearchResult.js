@@ -10,6 +10,7 @@ export default function SearchResult({ params }) {
   const { query, id, idCollection } = params;
   const { loading, images, setPage } = useImages({ query, id, idCollection });
   const externalRef = useRef();
+
   const { isNearScreen } = useNearScreen({
     externalRef: loading ? null : externalRef,
     once: false,
