@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./styles.css";
 
+const lavender__secondary = "#ece7ff";
+const rich_Black__primary = "#001219";
+
 const ImgInfoMobileRender = ({ image, color }) => {
   const [showDetail, setShowDetail] = useState(true);
   const {
@@ -14,14 +17,12 @@ const ImgInfoMobileRender = ({ image, color }) => {
     // username,
     views,
   } = image;
-  const inverColor = invertHex(color.substring(1));
 
-  function invertHex(hex) {
-    return (Number(`0x1${hex}`) ^ 0xffffff)
-      .toString(16)
-      .substring(1)
-      .toUpperCase();
-  }
+  const setContrast = () => {
+    let brightness = color[0] * 299 + color[1] * 587 + color[2] * 114;
+    brightness /= 255000;
+    return brightness >= 0.5 ? rich_Black__primary : lavender__secondary;
+  };
 
   return (
     <>
@@ -29,7 +30,10 @@ const ImgInfoMobileRender = ({ image, color }) => {
 
       {showDetail ? (
         <div
-          style={{ backgroundColor: `${color}10`, color: `#${inverColor}` }}
+          style={{
+            backgroundColor: `rgba(${color[0]},${color[1]},${color[2]}, .4)`,
+            color: setContrast(),
+          }}
           className="footer card-detail-info"
         >
           <div
@@ -77,13 +81,13 @@ const ImgInfoMobileRender = ({ image, color }) => {
 
             <div className="card-detail-info-grid-row bg-blur">
               <div
-                style={{ color: `#${inverColor}` }}
+                style={{ color: setContrast() }}
                 className="card-detail-icon card-detail-social-icon"
               >
                 <i className="bi bi-instagram "></i>
               </div>
               <div
-                style={{ color: `#${inverColor}` }}
+                style={{ color: setContrast() }}
                 className="card-detail-icon card-detail-social-icon"
               >
                 <i className="bi bi-twitter "></i>

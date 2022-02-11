@@ -5,7 +5,7 @@ const ColorPalette = ({ colors }) => {
         <div
           key={index}
           style={{
-            backgroundColor: color,
+            backgroundColor: `rgb(${color[0]},${color[1]},${color[2]})`,
             height: "80px",
             width: "80px",
             marginBottom: "1rem",

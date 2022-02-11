@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 import getImage from "../../services/getImage";
 import useResponsive from "../../hooks/useResponsive";
 import useImageColor from "use-image-color";
-import "./Details/styles.css";
+import "./styles.css";
 
 import ImgInfoMobileRender from "../../components/ImgInfoMobileCard";
 import ImgInfoDeskRender from "../../components/ImgInfoDeskCard";
@@ -17,7 +17,11 @@ export default function Detail({ params }) {
   const [location, setLocation] = useLocation(); // eslint-disable-line
   const [image, setImage] = useState({});
   const { width } = useResponsive();
-  const { colors } = useImageColor(image.small, { cors: true, colors: 5 });
+  const { colors } = useImageColor(image.small, {
+    cors: true,
+    colors: 5,
+    format: "rgb",
+  });
 
   useEffect(() => {
     getImage(params).then((img) => setImage(img));
