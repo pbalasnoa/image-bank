@@ -24,7 +24,7 @@ export default function SearchInput({ query, setQuery }) {
           className="search-text"
           placeholder="Search photos"
         />
-        <button className="search-btn-box" type="submit">
+        <button type="submit" className="search-btn-box">
           <i className="bi bi-search search-btn"></i>
         </button>
       </div>

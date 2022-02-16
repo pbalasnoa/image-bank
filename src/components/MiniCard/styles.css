@@ -50,6 +50,7 @@
   position: absolute;
   bottom: 16px;
   left: 16px;
+  max-width: 15.75rem;
   padding-block: 0.05rem;
   padding-inline: 0.5rem;
   color: var(--indian-red--accent);

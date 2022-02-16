@@ -15,17 +15,16 @@
   align-items: center;
   justify-content: space-between;
   width: 320px;
-  /* width: 0px; */
   height: 40px;
   padding-block: 10px;
   background-color: white;
   border: 1px solid var(--rich-Black--primary);
   border-radius: var(--border-radius);
-  /* border: none; */
 }
 
 .search-btn-box {
   background-color: var(--rich-Black--primary);
+  border: none;
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
 }
