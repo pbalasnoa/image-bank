@@ -11,7 +11,6 @@
 .card-info {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: flex-start;
   padding-inline: 1rem;
 }
@@ -69,15 +68,3 @@
 .hide {
   display: none;
 }
-
-/* .card-description-box{
-
-} */
-
-/* 928px */
-/* @media (min-width: 58em) {
-  .card {
-    display: grid;
-    width: 300px;
-  }
-} */

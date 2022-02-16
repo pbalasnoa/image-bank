@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main className="home-container">
       <div className="home-tags-box">
-        <Tag tags={topics} />
+        <Tag tags={topics} path={"/search/topic/"} />
       </div>
       <div className="home-collections-box mbl-2">
         <MiniCard collection={collection} />

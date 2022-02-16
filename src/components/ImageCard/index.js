@@ -3,6 +3,7 @@ import User from "../User";
 import "./styles.css";
 
 import { Link } from "wouter";
+import Tag from "../Tag";
 
 let noOfCharac = 80;
 
@@ -72,11 +73,7 @@ export default function ImageCard(props) {
 
         {tags && (
           <div className="card-tags-box">
-            {tags?.map((tag) => (
-              <p key={tag.title} className="card-tags">
-                {tag.title}
-              </p>
-            ))}
+            <Tag tags={tags} path={"/search/"} />
           </div>
         )}
 

@@ -4,6 +4,7 @@
   border: 2px solid var(--lavender--secondary);
   border-radius: var(--border-radius);
   color: var(--charcoal);
+  cursor: pointer;
 }
 
 .card-tags:hover {
