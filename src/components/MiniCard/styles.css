@@ -5,6 +5,7 @@
   max-height: 200px;
   border-radius: var(--border-radius);
   overflow-y: hidden;
+  cursor: pointer;
 }
 
 .miniCard-slider {

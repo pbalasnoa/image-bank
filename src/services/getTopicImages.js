@@ -22,10 +22,11 @@ const responseToImages = (results = []) => {
   return [];
 };
 
-export default function getTopicImages({ id, page = 1 } = {}) {
-  const apiURL = `${API_URL}/topics/${id}/photos?&page=${page}&orientation=portrait&client_id=${API_KEY}`;
+export default function getTopicImages({ idTopic, page = 1 } = {}) {
+  const apiURL = `${API_URL}/topics/${idTopic}/photos?&page=${page}&orientation=portrait&client_id=${API_KEY}`;
 
   return fetch(apiURL)
     .then((res) => res.json())
-    .then(responseToImages);
+    .then(responseToImages)
+    .catch((err) => console.log(err));
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const marginObserver = "800px";
+const marginObserver = "1000px";
 
 export default function useNearScreen({ externalRef, once = true } = {}) {
   const [isNearScreen, setIsNearScreen] = useState(false);

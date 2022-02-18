@@ -22,7 +22,7 @@ function App() {
         {!match && <Header query={query} setQuery={setQuery} />}
         <Route to="/" component={Home} />
         <Route path="/search/:query" component={SearchImage}></Route>
-        <Route path="/search/topic/:id" component={SearchImage} />
+        <Route path="/search/topic/:idTopic" component={SearchImage} />
         <Route
           path="/search/collection/:idCollection"
           component={SearchImage}
