@@ -15,14 +15,15 @@
 }
 
 .card-detail--palette-box {
-  margin-right: 2rem;
   display: flex;
   align-self: center;
   flex-direction: column;
+  margin-right: 1rem;
 }
 
 .card-detail--info-desk {
   align-self: center;
+  padding-left: 0.5rem;
 }
 
 .card-detail--info-title {
@@ -76,4 +77,30 @@
   font-size: 0.875rem;
   font-weight: 500;
   text-transform: capitalize;
+}
+
+.logo-box {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+@media (min-width: 43em) {
+  .logo-box {
+    bottom: 20px;
+    right: 16px;
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 41em) {
+  .card-detail--palette-box {
+    margin-inline: 2rem;
+  }
+
+  .card-detail--info-desk {
+    align-self: center;
+    padding-left: 2rem;
+  }
 }

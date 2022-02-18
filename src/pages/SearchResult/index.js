@@ -40,12 +40,14 @@ export default function SearchResult({ params }) {
   return (
     <>
       {loading ? (
-        <h1>Cargando...</h1>
+        <h1>Loading...</h1>
       ) : (
         <>
           <ListOfImage images={images} />
 
-          <div id="visor" ref={externalRef}></div>
+          <div id="visor" ref={externalRef} className="mbl-2">
+            <h1>Loading...</h1>
+          </div>
         </>
       )}
     </>

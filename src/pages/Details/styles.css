@@ -1,3 +1,26 @@
 .card-detail-desk {
   display: flex;
 }
+
+.card-detail--palette-box {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  margin-right: 1rem;
+}
+
+.card-detail--info-desk {
+  align-self: center;
+  padding-left: 0.5rem;
+}
+
+@media (min-width: 41em) {
+  .card-detail--palette-box {
+    margin-inline: 2rem;
+  }
+
+  .card-detail--info-desk {
+    align-self: center;
+    padding-left: 2rem;
+  }
+}

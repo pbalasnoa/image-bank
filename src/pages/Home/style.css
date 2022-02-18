@@ -19,7 +19,7 @@
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
-  row-gap: 1rem;
+  row-gap: 1.5rem;
 }
 
 .btn__contened {
@@ -40,8 +40,7 @@
   .home-collections-box {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 1rem;
-    column-gap: 2rem;
+    gap: 2rem;
   }
 }
 
@@ -53,7 +52,6 @@
   .home-collections-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 1rem;
-    column-gap: 2rem;
+    gap: 2rem;
   }
 }

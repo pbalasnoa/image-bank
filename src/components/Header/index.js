@@ -1,13 +1,13 @@
-import { Link } from "wouter";
+import "./styles.css";
 
 import SearchInput from "../SearchInput";
-import "./styles.css";
+import LogoImgBank from "../LogoIMG_bank";
 
 export default function Header({ query, setQuery }) {
   return (
     <header className="header">
       <div className="bar">
-        <Link to="/">IMG_bank</Link>
+        <LogoImgBank />
         <SearchInput query={query} setQuery={setQuery} />
       </div>
     </header>

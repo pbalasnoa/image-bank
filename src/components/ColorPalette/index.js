@@ -1,13 +1,9 @@
 import "./style.css";
-import Alert from "../Alert";
-import { useState } from "react";
+
 const lavender__secondary = "#ece7ff";
 const rich_Black__primary = "#001219";
 
-const ColorPalette = ({ colors }) => {
-  const [openAlert, setOpenAlert] = useState(false);
-  const [backGroundColor, setBackGroundColor] = useState(false);
-  const [colorText, setColorText] = useState(false);
+const ColorPalette = ({ colors, handleCopyClipboard }) => {
   const RGBToHex = (r, g, b) => {
     r = r.toString(16);
     g = g.toString(16);
@@ -28,47 +24,24 @@ const ColorPalette = ({ colors }) => {
     return brightness >= 0.5 ? rich_Black__primary : lavender__secondary;
   };
 
-  const handleCopyClipboard = (event) => {
-    let colorText = event.target.style.color;
-    let hexText = event.target.innerText;
-    setBackGroundColor(hexText);
-    setColorText(colorText);
-    let text = document.createElement("textarea");
-    text.innerText = hexText;
-    document.body.appendChild(text);
-    text.select();
-    document.execCommand("copy");
-    text.remove();
-    setOpenAlert(true);
-  };
-
   return colors.map((color, index) => (
-    <>
-      <Alert
-        text="Copied!"
-        open={openAlert}
-        setOpen={setOpenAlert}
-        backGroundColor={backGroundColor}
-        color={colorText}
-      />
-      <div
-        key={index}
+    <div
+      key={index}
+      style={{
+        backgroundColor: `rgb(${color[0]},${color[1]},${color[2]})`,
+      }}
+      className="color-box"
+    >
+      <p
         style={{
-          backgroundColor: `rgb(${color[0]},${color[1]},${color[2]})`,
+          color: setContrast(color[0], color[1], color[2]),
         }}
-        className="color-box"
+        className="text-box"
+        onClick={handleCopyClipboard}
       >
-        <p
-          style={{
-            color: setContrast(color[0], color[1], color[2]),
-          }}
-          className="text-box"
-          onClick={handleCopyClipboard}
-        >
-          {RGBToHex(color[0], color[1], color[2])}
-        </p>
-      </div>
-    </>
+        {RGBToHex(color[0], color[1], color[2])}
+      </p>
+    </div>
   ));
 };
 
