@@ -63,16 +63,25 @@ const TextInfoDesk = ({ image }) => {
         <h2 className="card-detail--info-title">{name}</h2>
         <div className="card-detail--info-box">
           {instagram_username && (
-            <p>
+            <a
+              href={`https://www.instagram.com/${instagram_username}/`}
+              rel="noreferrer"
+              target="_blank"
+            >
               <i className="bi bi-instagram pr-05"></i>
               {instagram_username}
-            </p>
+            </a>
           )}
           {twitter_username && (
-            <p className="pt-05">
+            <a
+              href={`https://twitter.com/${twitter_username}`}
+              rel="noreferrer"
+              target="_blank"
+              className="pt-05"
+            >
               <i className="bi bi-twitter pr-05"></i>
               {twitter_username}
-            </p>
+            </a>
           )}
         </div>
         <div className="card-detail--stats">

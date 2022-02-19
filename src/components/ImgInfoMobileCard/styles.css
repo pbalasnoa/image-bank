@@ -71,7 +71,7 @@
 
 .card-detail-info-grid-row {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto;
   row-gap: 0.5rem;
   align-items: center;
   justify-content: start;

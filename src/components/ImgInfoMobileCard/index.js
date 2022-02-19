@@ -5,7 +5,7 @@ import TextInfoMobile from "../TextInfoMobile";
 const lavender__secondary = "#ece7ff";
 const rich_Black__primary = "#001219";
 
-const ImgInfoMobileRender = ({ image, color }) => {
+const ImgInfoMobileRender = ({ image, color, handleCopyClipboard }) => {
   const [showDetail, setShowDetail] = useState(true);
   const { alt_description, small, ...restProps } = image;
 
@@ -25,6 +25,7 @@ const ImgInfoMobileRender = ({ image, color }) => {
           color={color}
           showDetail={setShowDetail}
           setContrast={setContrast}
+          handleCopyClipboard={handleCopyClipboard}
         />
       ) : (
         <div

@@ -1,5 +1,16 @@
 const TextInfoMobile = ({ image, color, showDetail, setContrast }) => {
-  const { likes, name, name_exif, name_location, views } = image;
+  const {
+    instagram_username,
+    likes,
+    name,
+    name_exif,
+    name_location,
+    twitter_username,
+    views,
+  } = image;
+
+  console.log("tuit", twitter_username);
+  console.log("insta", instagram_username);
 
   return (
     <div
@@ -49,18 +60,34 @@ const TextInfoMobile = ({ image, color, showDetail, setContrast }) => {
           )}
         </div>
         <div className="card-detail-info-grid-row bg-blur">
-          <div
-            style={{ color: setContrast() }}
-            className="card-detail-icon card-detail-social-icon"
-          >
-            <i className="bi bi-instagram "></i>
-          </div>
-          <div
-            style={{ color: setContrast() }}
-            className="card-detail-icon card-detail-social-icon"
-          >
-            <i className="bi bi-twitter "></i>
-          </div>
+          {instagram_username && (
+            <div
+              style={{ color: setContrast() }}
+              className="card-detail-icon card-detail-social-icon"
+            >
+              <a
+                href={`https://www.instagram.com/${instagram_username}/`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <i className="bi bi-instagram"></i>
+              </a>
+            </div>
+          )}
+          {twitter_username && (
+            <div
+              style={{ color: setContrast(), display: "none" }}
+              className="card-detail-icon card-detail-social-icon"
+            >
+              <a
+                href={`https://twitter.com/${twitter_username}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <i className="bi bi-twitter "></i>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
