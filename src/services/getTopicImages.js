@@ -17,6 +17,7 @@ const responseToImages = (results = []) => {
         username,
       };
     });
+    console.log("topic", images);
     return images;
   }
   return [];

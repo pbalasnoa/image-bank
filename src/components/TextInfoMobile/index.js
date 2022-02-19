@@ -9,9 +9,6 @@ const TextInfoMobile = ({ image, color, showDetail, setContrast }) => {
     views,
   } = image;
 
-  console.log("tuit", twitter_username);
-  console.log("insta", instagram_username);
-
   return (
     <div
       style={{

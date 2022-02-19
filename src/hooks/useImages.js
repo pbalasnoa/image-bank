@@ -15,6 +15,7 @@ export default function useImages({
   const [loadingNextPage, setLoadingNextPage] = useState(false);
   const [page, setPage] = useState(INITIAL_PAGE);
   const [images, setImages] = useState([]);
+  const [isImages, setIsImages] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -43,21 +44,25 @@ export default function useImages({
 
     if (idTopic) {
       getTopicImages({ idTopic, page }).then((nextImages) => {
+        console.log("use", nextImages);
+        if (nextImages.length <= 0) setIsImages(false);
         setImages((prevImage) => prevImage.concat(nextImages));
         setLoadingNextPage(false);
       });
     } else if (query) {
       getImages({ query, page }).then((nextImages) => {
+        if (nextImages.length <= 0) setIsImages(false);
         setImages((prevImage) => prevImage.concat(nextImages));
         setLoadingNextPage(false);
       });
     } else {
       getCollectionImages({ idCollection, page }).then((nextImages) => {
+        if (nextImages.length <= 0) setIsImages(false);
         setImages((prevImage) => prevImage.concat(nextImages));
         setLoadingNextPage(false);
       });
     }
   }, [query, idTopic, idCollection, page, setImages]);
 
-  return { loading, loadingNextPage, images, setPage };
+  return { loading, loadingNextPage, images, isImages, setPage };
 }

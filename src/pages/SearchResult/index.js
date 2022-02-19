@@ -8,7 +8,7 @@ import debounce from "just-debounce-it";
 
 export default function SearchResult({ params }) {
   const { query, idTopic, idCollection } = params;
-  const { loading, images, setPage } = useImages({
+  const { loading, images, isImages, setPage } = useImages({
     query,
     idTopic,
     idCollection,
@@ -46,7 +46,7 @@ export default function SearchResult({ params }) {
           <ListOfImage images={images} />
 
           <div id="visor" ref={externalRef} className="mbl-2">
-            <h1>Loading...</h1>
+            {isImages ? <h1>Loading...</h1> : <h1>No found new images :c</h1>}
           </div>
         </>
       )}
