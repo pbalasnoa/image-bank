@@ -5,6 +5,7 @@ import useImages from "../../hooks/useImages.js";
 import useNearScreen from "../../hooks/useNearScreen.js";
 
 import debounce from "just-debounce-it";
+import { Helmet } from "react-helmet";
 
 export default function SearchResult({ params }) {
   const { query, idTopic, idCollection } = params;
@@ -19,6 +20,9 @@ export default function SearchResult({ params }) {
     externalRef: loading ? null : externalRef,
     once: false,
   });
+
+  let title = query ? query : idTopic ? idTopic : "collection";
+  title = decodeURI(title);
 
   /* just-debounce-it
   controla la cantidad de llamadas a la API, 
@@ -40,9 +44,18 @@ export default function SearchResult({ params }) {
   return (
     <>
       {loading ? (
-        <h1>Loading...</h1>
+        <>
+          <h1>Loading...</h1>
+          <Helmet>
+            <title>Loading...</title>
+          </Helmet>
+        </>
       ) : (
         <>
+          <Helmet>
+            <title>{title} | IMG_bank</title>
+            <meta name="description" content={`result of images of ${title}`} />
+          </Helmet>
           <ListOfImage images={images} />
 
           <div id="visor" ref={externalRef} className="mbl-2">

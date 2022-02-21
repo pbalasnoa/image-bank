@@ -44,7 +44,6 @@ export default function useImages({
 
     if (idTopic) {
       getTopicImages({ idTopic, page }).then((nextImages) => {
-        console.log("use", nextImages);
         if (nextImages.length <= 0) setIsImages(false);
         setImages((prevImage) => prevImage.concat(nextImages));
         setLoadingNextPage(false);

@@ -8,10 +8,13 @@
   --lavender--secondary: #ece7ff;
   --charcoal: #425057;
   --indian-red--accent: #db5461;
+  --indian-red--shadow_15: #db546115;
+  --indian-red--shadow_30: #db546130;
 
   --Inter: "Inter", sans-serif;
 
   --border-radius: 8px;
+  --border-radius-scroll: 4px;
 }
 
 /* -------------------------- 
@@ -22,13 +25,31 @@ html {
   box-sizing: border-box;
   text-size-adjust: 100%;
   scroll-behavior: smooth;
-  /* overflow-x: hidden; */
 }
 
 body {
   overflow-x: hidden;
   text-align: center;
   font-family: var(--Inter);
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background: var(--rich-Black--primary);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--charcoal);
+  border-radius: var(--border-radius-scroll);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--lavender--secondary);
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: var(--indian-red--accent);
 }
 
 *,
@@ -54,6 +75,10 @@ a {
 
 .pr-05 {
   padding-right: 0.5rem;
+}
+
+.pb-05 {
+  padding-bottom: 0.5rem;
 }
 
 @media (min-width: 58em) {

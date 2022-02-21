@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .home-tags-box {
@@ -23,24 +23,36 @@
 }
 
 .btn__contened {
+  width: 320px;
   padding-block: 0.5rem;
-  padding-inline: 2rem;
+  /* padding-inline: 2rem; */
   border: none;
   border-radius: var(--border-radius);
-  background-color: var(--indian-red--accent);
-  color: var(--lavender--secondary);
+  background-color: transparent;
+  color: var(--indian-red--accent);
   font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: var(--indian-red--shadow_30) 0px 1px 2px 0px,
+    var(--indian-red--shadow_15) 0px 2px 6px 2px;
   cursor: pointer;
 }
 
 @media (min-width: 41em) {
+  .home-container {
+    margin-top: 28px;
+  }
+
   .home-collections-box {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+  }
+
+  .btn__contened {
+    width: fit-content;
+    padding-inline: 2rem;
   }
 }
 

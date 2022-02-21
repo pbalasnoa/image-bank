@@ -12,6 +12,7 @@ import DynamicStyleSearchInput from "../../components/DynamicStyleSearchInput";
 import ColorPalette from "../../components/ColorPalette";
 import TextInfoDesk from "../../components/TextInfoDesk";
 import Alert from "../../components/Alert";
+import { Helmet } from "react-helmet";
 
 export default function Detail({ params }) {
   const [query, setQuery] = useState("");
@@ -48,6 +49,12 @@ export default function Detail({ params }) {
 
   return (
     <div className={width > 500 ? "card-detail-desk" : "card-detail"}>
+      {image.hasOwnProperty("name") && (
+        <Helmet>
+          <title>{image?.name} | IMG_bank</title>
+          <meta name="description" content={`Imagen taken by:${image.name}`} />
+        </Helmet>
+      )}
       <Alert
         text="Copied!"
         open={openAlert}

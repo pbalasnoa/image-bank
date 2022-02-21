@@ -17,7 +17,6 @@ const responseToImages = (results = []) => {
         username,
       };
     });
-    console.log("topic", images);
     return images;
   }
   return [];
@@ -28,6 +27,5 @@ export default function getTopicImages({ idTopic, page = 1 } = {}) {
 
   return fetch(apiURL)
     .then((res) => res.json())
-    .then(responseToImages)
-    .catch((err) => console.log(err));
+    .then(responseToImages);
 }

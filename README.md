@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# IMG_bank [![Status: pause](https://img.shields.io/badge/Status-pause-yellow)]() [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Buscador de imágenes con diseño sencillo y limpio centrado en mantener el foco en las imágenes.
 
-## Available Scripts
+### :fire: Motivación
 
-In the project directory, you can run:
+Este proyecto se hace con el fin de practicar el consumo de una API REST, en este caso la JSON API de Unsplash, se realiza un scroll infinito, se extrae dinámicamente la paleta de colores de las imágenes y permite copiar el código HEX a portapapeles.
 
-### `npm start`
+[DEMO AppTask]()
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologías
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+El proyecto es creado con:
 
-### `npm test`
+- Node: 16.6.2
+- react: 17.0.2
+- react-helmet: 6.1.0
+- react-masonry-css: 1.0.16
+- use-image-color: 0.0.9
+- wouter: 2.8.0-alpha.2
+- Unsplash JSON API
+- HTML, CSS y JavaScript
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Estado del proyecto
 
-### `npm run build`
+El proyecto se encuentra en una versión inicial de lo que se espera como producto final. A continuación se en lista las funcionalidades que posee:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [x] Listado por temas
+- [x] Listado por colecciones
+- [x] Búsqueda por palabra clave
+- [x] Paleta de color
+- [x] Copiar a portapapeles
+- [ ] Adaptar el diseño para mostrar imágenes de cualquier orientación
+- [ ] Agregar filtros
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instalación
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Sigue estos pasos para correr localmente el proyecto
 
-### `npm run eject`
+1. Clona este repositorio usando `git clone` o descargando el ZIP.
+2. Ve a la carpeta del proyecto `cd image_bank`.
+3. Instala las dependencias con `npm install`.
+4. Configura tus variables de entorno en un archivo **.env**, en este archivo debes colocar el access key que te da [Unsplash](https://unsplash.com/documentation#creating-a-developer-account).
+5. Corre en ambiente local ejecutando `npm start`.
+6. Disfruta de IMG_bank :blush:.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Mensaje de la desarrolladora
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si llegaste hasta aquí por favor trae más :coffee: y :cookie:.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Sígueme en [![A_Balasnoa](https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2FA_Balasnoa)](https://twitter.com/A_Balasnoa)
