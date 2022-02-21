@@ -6,7 +6,9 @@ Buscador de imágenes con diseño sencillo y limpio centrado en mantener el foco
 
 Este proyecto se hace con el fin de practicar el consumo de una API REST, en este caso la JSON API de Unsplash, se realiza un scroll infinito, se extrae dinámicamente la paleta de colores de las imágenes y permite copiar el código HEX a portapapeles.
 
-[DEMO AppTask]()
+[DEMO IMG_bank](https://image-bank-two.vercel.app/)
+
+![mobile](https://firebasestorage.googleapis.com/v0/b/to-do-list-84dd6.appspot.com/o/readme%2Fmobile.gif?alt=media&token=a5e5a37b-ab01-4adb-b0bb-ebed5da2360d "Vista de celular")
 
 ![desk](https://firebasestorage.googleapis.com/v0/b/to-do-list-84dd6.appspot.com/o/readme%2Fdesk.gif?alt=media&token=3ddfe095-cc4d-4107-bfa7-1e8a80a58e07 "Vista de escritorio")
 
