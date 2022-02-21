@@ -17,6 +17,7 @@ El proyecto es creado con:
 - react-helmet: 6.1.0
 - react-masonry-css: 1.0.16
 - use-image-color: 0.0.9
+- vercel: 24.0.0
 - wouter: 2.8.0-alpha.2
 - Unsplash JSON API
 - HTML, CSS y JavaScript
