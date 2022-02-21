@@ -1,6 +1,5 @@
 import "./style.css";
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
 import getTopics from "../../services/getTopics";
 
 import Tag from "../../components/Tag";

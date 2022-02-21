@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useState, useEffect } from "react";
 import getImage from "../../services/getImage";
 import useResponsive from "../../hooks/useResponsive";
 import useImageColor from "use-image-color";
