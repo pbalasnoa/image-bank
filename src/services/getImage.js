@@ -1,6 +1,10 @@
 import { API_KEY, API_URL } from "./settings";
 
 const responseToImage = (img = {}) => {
+  if (img.hasOwnProperty("errors")) {
+    return { error: img.errors };
+  }
+
   const {
     alt_description,
     downloads,
@@ -48,6 +52,12 @@ export default function getImage({ id } = {}) {
   const apiURL = `${API_URL}/photos/${id}?client_id=${API_KEY}`;
 
   return fetch(apiURL)
-    .then((res) => res.json())
-    .then(responseToImage);
+    .then((res) => {
+      if (!res.ok && res.status === 403)
+        return { errors: ["Rate Limit Exceeded, you try later"] };
+
+      return res.json();
+    })
+    .then(responseToImage)
+    .catch((err) => console.error(err));
 }

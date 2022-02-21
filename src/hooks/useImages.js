@@ -15,25 +15,41 @@ export default function useImages({
   const [loadingNextPage, setLoadingNextPage] = useState(false);
   const [page, setPage] = useState(INITIAL_PAGE);
   const [images, setImages] = useState([]);
-  const [isImages, setIsImages] = useState(true);
+  const [isNewImages, setIsNewImages] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
 
     if (idTopic) {
       getTopicImages({ idTopic }).then((images) => {
-        setImages(images);
         setLoading(false);
+        if (images.error) {
+          setError(images.error[0]);
+          return;
+        }
+
+        setImages(images);
       });
     } else if (query) {
       getImages({ query }).then((images) => {
-        setImages(images);
         setLoading(false);
+        if (images.error) {
+          setError(images.error[0]);
+          return;
+        }
+
+        setImages(images);
       });
     } else {
       getCollectionImages({ idCollection }).then((images) => {
-        setImages(images);
         setLoading(false);
+        if (images.error) {
+          setError(images.error[0]);
+          return;
+        }
+
+        setImages(images);
       });
     }
   }, [query, idTopic, idCollection]);
@@ -44,24 +60,58 @@ export default function useImages({
 
     if (idTopic) {
       getTopicImages({ idTopic, page }).then((nextImages) => {
-        if (nextImages.length <= 0) setIsImages(false);
-        setImages((prevImage) => prevImage.concat(nextImages));
         setLoadingNextPage(false);
+        if (nextImages.error) {
+          setError(nextImages.error[0]);
+          return;
+        }
+
+        if (nextImages.length <= 0) {
+          setIsNewImages(false);
+          return;
+        }
+
+        setImages((prevImage) => prevImage.concat(nextImages));
       });
     } else if (query) {
       getImages({ query, page }).then((nextImages) => {
-        if (nextImages.length <= 0) setIsImages(false);
-        setImages((prevImage) => prevImage.concat(nextImages));
         setLoadingNextPage(false);
+        if (nextImages.error) {
+          setError(nextImages.error[0]);
+          return;
+        }
+
+        if (nextImages.length <= 0) {
+          setIsNewImages(false);
+          return;
+        }
+
+        setImages((prevImage) => prevImage.concat(nextImages));
       });
     } else {
       getCollectionImages({ idCollection, page }).then((nextImages) => {
-        if (nextImages.length <= 0) setIsImages(false);
-        setImages((prevImage) => prevImage.concat(nextImages));
         setLoadingNextPage(false);
+        if (nextImages.error) {
+          setError(nextImages.error[0]);
+          return;
+        }
+
+        if (nextImages.length <= 0) {
+          setIsNewImages(false);
+          return;
+        }
+
+        setImages((prevImage) => prevImage.concat(nextImages));
       });
     }
   }, [query, idTopic, idCollection, page, setImages]);
 
-  return { loading, loadingNextPage, images, isImages, setPage };
+  return {
+    loading,
+    loadingNextPage,
+    images,
+    isNewImages,
+    error,
+    setPage,
+  };
 }

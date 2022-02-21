@@ -1,8 +1,8 @@
+import "./styles.css";
 import { useState, useEffect } from "react";
 import getImage from "../../services/getImage";
 import useResponsive from "../../hooks/useResponsive";
 import useImageColor from "use-image-color";
-import "./styles.css";
 
 import ImgInfoMobileRender from "../../components/ImgInfoMobileCard";
 import ImgInfoDeskRender from "../../components/ImgInfoDeskCard";
@@ -16,6 +16,7 @@ import { Helmet } from "react-helmet";
 export default function Detail({ params }) {
   const [query, setQuery] = useState("");
   const [image, setImage] = useState({});
+  const [error, setError] = useState(null);
   const { width } = useResponsive();
   const [openAlert, setOpenAlert] = useState(false);
   const [backGroundColor, setBackGroundColor] = useState(false);
@@ -23,7 +24,14 @@ export default function Detail({ params }) {
   const { alt_description, small, ...restProps } = image;
 
   useEffect(() => {
-    getImage(params).then((img) => setImage(img));
+    getImage(params).then((img) => {
+      if (img.error) {
+        setError(img.error[0]);
+        return;
+      }
+
+      setImage(img);
+    });
   }, [params]);
 
   const { colors } = useImageColor(small, {
@@ -64,7 +72,11 @@ export default function Detail({ params }) {
       <ImgInfoNavCard>
         <DynamicStyleSearchInput query={query} setQuery={setQuery} />
       </ImgInfoNavCard>
-      {width < 500 ? (
+      {error === "Rate Limit Exceeded" ? (
+        <div className="error-box">
+          <h1>{error} :c</h1>
+        </div>
+      ) : width < 500 ? (
         <>{colors && <ImgInfoMobileRender image={image} color={colors[0]} />}</>
       ) : (
         <ImgInfoDeskRender image={small} description={alt_description}>

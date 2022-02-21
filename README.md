@@ -8,6 +8,8 @@ Este proyecto se hace con el fin de practicar el consumo de una API REST, en est
 
 [DEMO AppTask]()
 
+![desk](https://firebasestorage.googleapis.com/v0/b/to-do-list-84dd6.appspot.com/o/readme%2Fdesk.gif?alt=media&token=3ddfe095-cc4d-4107-bfa7-1e8a80a58e07 "Vista de escritorio")
+
 ## Tecnologías
 
 El proyecto es creado con:
@@ -33,6 +35,8 @@ El proyecto se encuentra en una versión inicial de lo que se espera como produc
 - [x] Copiar a portapapeles
 - [ ] Adaptar el diseño para mostrar imágenes de cualquier orientación
 - [ ] Agregar filtros
+- [ ] Agregar animaciones
+- [ ] Más interacción con la API
 
 ## Instalación
 

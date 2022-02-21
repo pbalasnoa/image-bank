@@ -9,7 +9,7 @@ const breakpointColumnsObj = {
   927: 1,
 };
 
-export default function ListOfImage({ images }) {
+export default function ListOfImage({ images, error }) {
   return (
     <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid">
       {images?.map((img) => (

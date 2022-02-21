@@ -1,11 +1,13 @@
 import { API_KEY, API_URL } from "./settings";
 
 const responseToImages = ({ results } = []) => {
+  if (results.hasOwnProperty("errors")) {
+    return { error: results.errors };
+  }
+
   if (Array.isArray(results)) {
     const images = results.map((img) => {
       const { alt_description, description, id, likes, tags, urls, user } = img;
-      // const { name: name_exif } = exif;
-      // const { name: name_location } = location;
       const { small } = urls;
       const { name, profile_image, username } = user;
       return {
@@ -29,6 +31,12 @@ export default function getImages({ query = "random", page = 1 } = {}) {
   const apiURL = `${API_URL}/search/photos?query=${query}&page=${page}&orientation=portrait&client_id=${API_KEY}`;
 
   return fetch(apiURL)
-    .then((res) => res.json())
-    .then(responseToImages);
+    .then((res) => {
+      if (!res.ok && res.status === 403)
+        return { errors: ["Rate Limit Exceeded, you try later"] };
+
+      return res.json();
+    })
+    .then(responseToImages)
+    .catch((err) => console.error(err));
 }

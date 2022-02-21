@@ -39,7 +39,7 @@ const TextInfoMobile = ({ image, color, showDetail, setContrast }) => {
               {name_location}
             </p>
           )}
-          {views && (
+          {views > 0 && (
             <p className="card-detail-subtext">
               <span className="card-detail-icon">
                 <i className="bi bi-eye-fill"></i>
@@ -47,7 +47,7 @@ const TextInfoMobile = ({ image, color, showDetail, setContrast }) => {
               {views}
             </p>
           )}
-          {likes && (
+          {likes > 0 && (
             <p className="card-detail-subtext">
               <span className="card-detail-icon">
                 <i className="bi bi-heart-fill"></i>
@@ -81,7 +81,7 @@ const TextInfoMobile = ({ image, color, showDetail, setContrast }) => {
                 rel="noreferrer"
                 target="_blank"
               >
-                <i className="bi bi-twitter "></i>
+                <i className="bi bi-twitter"></i>
               </a>
             </div>
           )}

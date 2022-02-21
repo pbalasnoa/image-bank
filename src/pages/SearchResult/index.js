@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet";
 
 export default function SearchResult({ params }) {
   const { query, idTopic, idCollection } = params;
-  const { loading, images, isImages, setPage } = useImages({
+  const { loading, images, isNewImages, error, setPage } = useImages({
     query,
     idTopic,
     idCollection,
@@ -56,10 +56,17 @@ export default function SearchResult({ params }) {
             <title>{title} | IMG_bank</title>
             <meta name="description" content={`result of images of ${title}`} />
           </Helmet>
-          <ListOfImage images={images} />
+
+          <ListOfImage images={images} error={error} />
 
           <div id="visor" ref={externalRef} className="mbl-2">
-            {isImages ? <h1>Loading...</h1> : <h1>No found new images :c</h1>}
+            {error ? (
+              <h1>{error} :c</h1>
+            ) : isNewImages ? (
+              <h1>Loading...</h1>
+            ) : (
+              <h1>No found new images :c</h1>
+            )}
           </div>
         </>
       )}

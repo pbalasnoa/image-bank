@@ -14,6 +14,16 @@
   padding-left: 0.5rem;
 }
 
+.error-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--lavender--secondary);
+  font-weight: 500;
+}
+
 @media (min-width: 41em) {
   .card-detail--palette-box {
     margin-inline: 2rem;
