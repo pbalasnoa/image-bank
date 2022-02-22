@@ -8,9 +8,9 @@ Este proyecto se hace con el fin de practicar el consumo de una API REST, en est
 
 [DEMO IMG_bank](https://image-bank-two.vercel.app/)
 
-![mobile](https://firebasestorage.googleapis.com/v0/b/to-do-list-84dd6.appspot.com/o/readme%2Fmobile.gif?alt=media&token=a5e5a37b-ab01-4adb-b0bb-ebed5da2360d "Vista de celular")
+![mobile](https://github.com/pbalasnoa/image-bank/blob/main/assets/mobile.gif "Vista de celular")
 
-![desk](https://firebasestorage.googleapis.com/v0/b/to-do-list-84dd6.appspot.com/o/readme%2Fdesk.gif?alt=media&token=3ddfe095-cc4d-4107-bfa7-1e8a80a58e07 "Vista de escritorio")
+![desk](https://github.com/pbalasnoa/image-bank/blob/main/assets/desk.gif "Vista de escritorio")
 
 ## Tecnologías
 
