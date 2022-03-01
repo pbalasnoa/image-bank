@@ -1,6 +1,17 @@
 .logo {
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
   font-weight: 500;
   color: var(--rich-Black--primary);
   z-index: 20;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+/*640px*/
+@media (min-width: 59em) {
+  .title {
+    font-size: 5rem;
+  }
 }

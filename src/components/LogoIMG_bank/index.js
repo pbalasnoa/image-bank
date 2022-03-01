@@ -4,7 +4,9 @@ import { Link } from "wouter";
 const LogoImgBank = () => {
   return (
     <div className="logo">
-      <Link to="/">IMG_bank</Link>
+      <h1 className="title">
+        <Link to="/">IMG_bank</Link>
+      </h1>
     </div>
   );
 };

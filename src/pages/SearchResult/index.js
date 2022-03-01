@@ -45,7 +45,7 @@ export default function SearchResult({ params }) {
     <>
       {loading ? (
         <>
-          <h1>Loading...</h1>
+          <h2>Loading...</h2>
           <Helmet>
             <title>Loading...</title>
           </Helmet>
@@ -61,11 +61,11 @@ export default function SearchResult({ params }) {
 
           <div id="visor" ref={externalRef} className="mbl-2">
             {error ? (
-              <h1>{error} :c</h1>
+              <h2>{error} :c</h2>
             ) : isNewImages ? (
-              <h1>Loading...</h1>
+              <h2>Loading...</h2>
             ) : (
-              <h1>No found new images :c</h1>
+              <h2>No found new images :c</h2>
             )}
           </div>
         </>

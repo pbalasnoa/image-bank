@@ -74,7 +74,7 @@ export default function Detail({ params }) {
       </ImgInfoNavCard>
       {error === "Rate Limit Exceeded" ? (
         <div className="error-box">
-          <h1>{error} :c</h1>
+          <h2>{error} :c</h2>
         </div>
       ) : width < 500 ? (
         <>{colors && <ImgInfoMobileRender image={image} color={colors[0]} />}</>

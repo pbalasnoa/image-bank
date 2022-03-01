@@ -26,7 +26,7 @@ export default function Home() {
       </div>
       {loading ? (
         <div className="mbl-2">
-          <h1>Loading...</h1>
+          <h2>Loading...</h2>
           <Helmet>
             <title>Loading...</title>
           </Helmet>
